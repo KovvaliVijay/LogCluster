@@ -396,10 +396,3 @@ Results: 24 passed, 0 failed.
 4. **Batch Processing**: The application currently processes files in batches. In a future production deployment, streaming ingestion via WebSockets, Apache Kafka, or log forwarders could be added.
 5. **No Ground-Truth Accuracy Claim**: Because this is an unsupervised learning pipeline operating on raw operational logs, conventional supervised metrics (Accuracy, F1-Score, Precision/Recall) are not applicable and should not be claimed during presentation.
 
----
-
-## Attribution & License
-
-- **Original Project**: Adapted from **Salesforce LogAI** (BSD-3-Clause License).
-- **Modifications**: Transformed into **LogCluster — Universal Log Pattern Grouping**, streamlining the architecture into modular `src/` components, removing heavy deep-learning/anomaly pipelines, introducing occurrence-frequency rarity detection, dynamic thresholding, multi-source ingestion, and building an interactive Plotly Dash interface.
-- **License**: BSD 3-Clause License. See [LICENSE.txt](LICENSE.txt) for details.

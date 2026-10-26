@@ -1,0 +1,12 @@
+# LogCluster — Universal Log Pattern Grouping
+# Core Dependencies
+dash>=2.5.1
+dash-bootstrap-components>=1.2.1
+plotly>=5.9.0
+pandas>=1.2.0
+numpy>=1.21.4
+scikit-learn>=1.0.1
+nltk>=3.6.5
+attrs>=21.2.0
+PyYAML>=6.0
+cachetools>=4.2.4

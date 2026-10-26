@@ -1,0 +1,405 @@
+/* ==========================================================================
+   LogCluster — Complete Design System & Theme Engine (Light & Dark Mode)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Theme Variables
+   -------------------------------------------------------------------------- */
+:root, [data-theme="light"] {
+  --color-scheme: light;
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-subtle: #f1f5f9;
+  --bg-navbar: #ffffff;
+  --bg-input: #ffffff;
+  --bg-code: #1e293b;
+  --bg-dropdown: #ffffff;
+  --bg-dropdown-hover: #f1f5f9;
+  --bg-table-header: #2c3e50;
+  --bg-table-row-hover: #f1f5f9;
+  --bg-table-rare: #fef2f2;
+  --bg-upload-box: #fafafa;
+  --bg-callout: #f8fafc;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-navbar: #1e293b;
+  --text-code: #f8fafc;
+  --text-table-header: #ffffff;
+  --text-rare: #b91c1c;
+
+  --border-subtle: #e2e8f0;
+  --border-card: #e2e8f0;
+  --border-input: #cbd5e1;
+
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07);
+
+  --accent-primary: #2563eb;
+  --accent-success: #16a34a;
+  --accent-danger: #dc2626;
+  --accent-info: #0891b2;
+  --accent-warning: #d97706;
+
+  --toggle-bg: #f1f5f9;
+  --toggle-border: #cbd5e1;
+  --toggle-text: #1e293b;
+}
+
+[data-theme="dark"] {
+  --color-scheme: dark;
+  --bg-page: #0b1120;
+  --bg-card: #151e32;
+  --bg-card-subtle: #1c273e;
+  --bg-navbar: #151e32;
+  --bg-input: #0f172a;
+  --bg-code: #080c14;
+  --bg-dropdown: #151e32;
+  --bg-dropdown-hover: #1e2c45;
+  --bg-table-header: #0a0f1d;
+  --bg-table-row-hover: #1b263b;
+  --bg-table-rare: #2d1216;
+  --bg-upload-box: #101726;
+  --bg-callout: #1c273e;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-navbar: #f8fafc;
+  --text-code: #e2e8f0;
+  --text-table-header: #f8fafc;
+  --text-rare: #fca5a5;
+
+  --border-subtle: #243049;
+  --border-card: #243049;
+  --border-input: #334155;
+
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 8px -1px rgba(0, 0, 0, 0.5);
+
+  --accent-primary: #3b82f6;
+  --accent-success: #22c55e;
+  --accent-danger: #ef4444;
+  --accent-info: #06b6d4;
+  --accent-warning: #f59e0b;
+
+  --toggle-bg: #1e293b;
+  --toggle-border: #334155;
+  --toggle-text: #f8fafc;
+}
+
+/* --------------------------------------------------------------------------
+   2. Global Smooth Transitions & Resets
+   -------------------------------------------------------------------------- */
+body {
+  background-color: var(--bg-page) !important;
+  color: var(--text-primary) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  margin: 0;
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. Navbar & Header Styling
+   -------------------------------------------------------------------------- */
+.navbar-logcluster {
+  background-color: var(--bg-navbar) !important;
+  border-bottom: 1px solid var(--border-subtle) !important;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.brand-title {
+  color: var(--text-primary) !important;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
+
+.brand-subtitle {
+  color: var(--text-secondary) !important;
+  font-weight: 400;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  background-color: var(--toggle-bg) !important;
+  border: 1px solid var(--toggle-border) !important;
+  color: var(--toggle-text) !important;
+  padding: 6px 14px !important;
+  border-radius: 20px !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.theme-toggle-btn:hover {
+  filter: brightness(0.95);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .theme-toggle-btn:hover {
+  filter: brightness(1.2);
+}
+
+/* --------------------------------------------------------------------------
+   4. Cards & Containers
+   -------------------------------------------------------------------------- */
+.card {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-card) !important;
+  color: var(--text-primary) !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-title {
+  color: var(--text-primary) !important;
+}
+
+.card-subtitle, .text-muted {
+  color: var(--text-secondary) !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. Tabs & Navigation
+   -------------------------------------------------------------------------- */
+.nav-tabs {
+  border-bottom: 2px solid var(--border-subtle) !important;
+}
+
+.nav-tabs .nav-link {
+  color: var(--text-secondary) !important;
+  font-weight: 600 !important;
+  border: none !important;
+  padding: 10px 18px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background-color: transparent !important;
+  border-bottom: 3px solid transparent !important;
+  transition: all 0.2s ease;
+}
+
+.nav-tabs .nav-link:hover {
+  color: var(--text-primary) !important;
+  background-color: var(--bg-card-subtle) !important;
+  border-radius: 6px 6px 0 0;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--accent-primary) !important;
+  background-color: var(--bg-card) !important;
+  border-bottom: 3px solid var(--accent-primary) !important;
+  border-radius: 6px 6px 0 0;
+}
+
+/* Tab Vector SVG Icons via Mask */
+.tab-icon-dashboard::before,
+.tab-icon-upload::before,
+.tab-icon-patterns::before,
+.tab-icon-rare::before,
+.tab-icon-explorer::before,
+.tab-icon-export::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  vertical-align: -3px;
+  background-color: currentColor;
+  flex-shrink: 0;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-mode: alpha;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-mode: alpha;
+}
+
+.tab-icon-dashboard::before {
+  mask-image: url("/assets/icons/dashboard.svg");
+  -webkit-mask-image: url("/assets/icons/dashboard.svg");
+}
+
+.tab-icon-upload::before {
+  mask-image: url("/assets/icons/upload.svg");
+  -webkit-mask-image: url("/assets/icons/upload.svg");
+}
+
+.tab-icon-patterns::before {
+  mask-image: url("/assets/icons/patterns.svg");
+  -webkit-mask-image: url("/assets/icons/patterns.svg");
+}
+
+.tab-icon-rare::before {
+  mask-image: url("/assets/icons/rare.svg");
+  -webkit-mask-image: url("/assets/icons/rare.svg");
+}
+
+.tab-icon-explorer::before {
+  mask-image: url("/assets/icons/search.svg");
+  -webkit-mask-image: url("/assets/icons/search.svg");
+}
+
+.tab-icon-export::before {
+  mask-image: url("/assets/icons/export.svg");
+  -webkit-mask-image: url("/assets/icons/export.svg");
+}
+
+/* --------------------------------------------------------------------------
+   6. Form Controls, Inputs & Dropdowns
+   -------------------------------------------------------------------------- */
+.form-control, .form-select, input[type="text"], input[type="number"] {
+  background-color: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-input) !important;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.form-control:focus, input[type="text"]:focus, input[type="number"]:focus {
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.15) !important;
+}
+
+/* React-Select (Dash Dropdowns) */
+.Select-control {
+  background-color: var(--bg-input) !important;
+  border-color: var(--border-input) !important;
+  color: var(--text-primary) !important;
+}
+
+.Select-value-label, .Select-placeholder {
+  color: var(--text-primary) !important;
+}
+
+.Select-menu-outer {
+  background-color: var(--bg-dropdown) !important;
+  border-color: var(--border-input) !important;
+}
+
+.Select-option {
+  background-color: var(--bg-dropdown) !important;
+  color: var(--text-primary) !important;
+}
+
+.Select-option:hover, .Select-option.is-focused {
+  background-color: var(--bg-dropdown-hover) !important;
+}
+
+/* Upload Dropzone */
+.upload-dropzone {
+  background-color: var(--bg-upload-box) !important;
+  border: 2px dashed var(--border-input) !important;
+  color: var(--text-secondary) !important;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.upload-dropzone:hover {
+  border-color: var(--accent-primary) !important;
+  background-color: var(--bg-card-subtle) !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. DataTables (Dash DataTable Theme Integration)
+   -------------------------------------------------------------------------- */
+.dash-table-container {
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner th {
+  background-color: var(--bg-table-header) !important;
+  color: var(--text-table-header) !important;
+  border-color: var(--border-subtle) !important;
+  font-weight: 700 !important;
+  padding: 12px 10px !important;
+}
+
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner td {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-subtle) !important;
+  padding: 10px !important;
+}
+
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner tr:hover td {
+  background-color: var(--bg-table-row-hover) !important;
+}
+
+/* Data Table Pagination Controls */
+.dash-table-container .previous-next-container {
+  background-color: var(--bg-card) !important;
+  color: var(--text-secondary) !important;
+  border-top: 1px solid var(--border-subtle) !important;
+  padding: 8px !important;
+}
+
+.dash-table-container .previous-next-container button {
+  background-color: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-input) !important;
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   8. Code & Log Inspection Areas
+   -------------------------------------------------------------------------- */
+.code-inspector-area {
+  background-color: var(--bg-code) !important;
+  color: var(--text-code) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* --------------------------------------------------------------------------
+   9. List Groups & Alerts
+   -------------------------------------------------------------------------- */
+.list-group-item {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+.alert-info {
+  background-color: var(--bg-callout) !important;
+  border-color: var(--accent-info) !important;
+  color: var(--text-primary) !important;
+}
+
+.alert-light {
+  background-color: var(--bg-card-subtle) !important;
+  border-color: var(--border-subtle) !important;
+  color: var(--text-primary) !important;
+}
+
+/* --------------------------------------------------------------------------
+   10. Scrollbars Styling
+   -------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-input);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
